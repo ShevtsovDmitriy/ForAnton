@@ -20,20 +20,25 @@ public class Office {
         return persons;
     }
 
-    public ArrayList<Salary> getSalary() {
-        return salary;
-    }
-
-    public void addNewDepartment(String name){
+    public String addNewDepartment(String name){
         departments.add(new Department(departments.size(), name));
+        return "Департамент добавлен";
     }
 
-    public void addNewPerson(int departmentId, String fio){
-        persons.add(new Person(persons.size(), departments.get(departmentId), fio));
+    public String addNewPerson(int departmentId, String fio){
+        if (departments.size() > departmentId){
+            persons.add(new Person(persons.size(), departments.get(departmentId), fio));
+            return "Работник добавлен";
+        }
+        else return "Ошибка добавления, неверный ID департамента. Для просмотра всех департаментов введите команду print departments";
     }
 
-    public void addNewSalary(int personId, int monthPay, int yearPay, int summPay){
-        salary.add(new Salary(persons.size(), persons.get(personId), monthPay, yearPay, summPay));
+    public String addNewSalary(int personId, int monthPay, int yearPay, int summPay){
+        if(persons.size() > personId) {
+            salary.add(new Salary(persons.size(), persons.get(personId), monthPay, yearPay, summPay));
+            return "З/п добавлена";
+        }
+        else return "Ошибка добавления, неверный ID работника. Для просмотра всех работников введите команду print persons";
     }
 
     public int getPersonSalary(int personId){

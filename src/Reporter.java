@@ -27,17 +27,13 @@ public class Reporter {
                 break;
             }
         }
-
-
-
     }
 
     public void addDepartment(){
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.println("Введите имя департамента");
         String answer = scanner.nextLine();
-        myOffice.addNewDepartment(answer);
-        System.out.println("Департамент добавлен");
+        System.out.println(myOffice.addNewDepartment(answer));
     }
 
     public void addPerson(){
@@ -46,8 +42,7 @@ public class Reporter {
         String fio = scanner.nextLine();
         System.out.println("Введите ID департамента");
         String depId = scanner.nextLine();
-        myOffice.addNewPerson(Integer.parseInt(depId) , fio);
-        System.out.println("Работник добавлен");
+        System.out.println(myOffice.addNewPerson(Integer.parseInt(depId) , fio));
     }
 
     public void addSalary(){
@@ -60,8 +55,7 @@ public class Reporter {
         String year = scanner.nextLine();
         System.out.println("Введите з/п");
         String salary = scanner.nextLine();
-        myOffice.addNewSalary(Integer.parseInt(id), Integer.parseInt(month), Integer.parseInt(year), Integer.parseInt(salary));
-        System.out.println("З/п добавлена");
+        System.out.println(myOffice.addNewSalary(Integer.parseInt(id), Integer.parseInt(month), Integer.parseInt(year), Integer.parseInt(salary)));
     }
 
     public void printSalary(){
